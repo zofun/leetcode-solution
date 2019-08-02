@@ -17,9 +17,9 @@ class Solution {
         ListNode cur=head;
         ListNode newHead=null;
         while(cur!=null){
+            //先记录下一个结点
             ListNode temp=cur.next;
-
-         
+            //将当前结点翻转
             cur.next=newHead;
             newHead=cur;
             cur=temp;
