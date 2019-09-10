@@ -1,0 +1,29 @@
+/*
+ * @lc app=leetcode id=938 lang=java
+ *
+ * [938] Range Sum of BST
+ */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int rangeSumBST(TreeNode root, int L, int R) {
+        if(root==null){
+            return 0;
+        }
+        if(L<=root.val&&root.val<=R){
+            return rangeSumBST(root.left,L,R)+rangeSumBST(root.right, L, R)+root.val;
+        }else if(root.val<L){
+            return rangeSumBST(root.right, L, R);
+        }else{
+            return rangeSumBST(root.left, L, R);
+        }
+    }
+}
+
